@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+
+import os
+import subprocess
+import sys
+
+def cc(llvmcc, src, argv):
+	out = [i for i, x in enumerate(argv) if x == '-o']
+	if not out:
+		out = src
+	else:
+		out = argv[out[-1] + 1]
+	if out != '-':
+		out = os.path.splitext(out)[0] + '.ll'
+	argv += ['-o', '-']
+	# Remove profiling flags.
+	argv = [x for x in argv if x not in ['-pg', '-fprofile-arcs', '-ftest-coverage']]
+	# Remove warning flags.
+	argv = [x for x in argv if not x.startswith('-W')]
+	# Linux kernel hack: disable asm goto.
+	argv = [x for x in argv if x != '-DCC_HAVE_ASM_GOTO']
+	# Remove some other flags.
+	#argv = [x for x in argv if not x.startswith('-mabi')]
+	#argv = [x for x in argv if not x.startswith('-mno-thumb-interwork')]
+	#argv = [x for x in argv if not x.startswith('-march')]
+	#argv = [x for x in argv if not x.startswith('-mtune')]
+	argv = [x for x in argv if not x.startswith('-fsanitize')]
+	argv = [x for x in argv if not x.startswith('-Uarm')]
+	if( 'armv7-a' in argv ):
+		argv[argv.index('armv7-a')] = 'cortex-a8'
+	#argv = [x for x in argv if not x.startswith('-mlittle')]
+	# Use -fstrict-overflow to distinguish signed/unsigned integers.
+	#more = ['-S', '-flto',  '-fno-builtin', '-fno-delete-null-pointer-checks', '-w', '-Qunused-arguments', '-O0', '-g', '-v']
+
+	more = ['-S', '-flto',  '-fno-builtin', '-mno-warn-deprecated',
+	'-Wno-asm-operand-widths', '-Wno-null-dereference',
+	'-Wno-tautological-compare', '-Wno-format-invalid-specifier', '-Wno-gnu',
+	'-Qunused-arguments', '-O0', '-g', 
+	'-Wno-initializer-overrides', '-Wno-unused-value', '-Wno-format',
+	'-Wno-unknown-warning-option', '-Wno-self-assign', '-Wno-sign-compare'
+	,'-Wno-format-zero-length', '-Wno-uninitialized', '-no-integrated-as', 
+	'-Wno-pointer-sign', '-Wno-array-bounds', '-fno-sanitize=undefined' ]
+
+	#print llvmcc + argv + more + [src]
+	p1 = subprocess.Popen(llvmcc + argv + more + [src], stdout=subprocess.PIPE)
+	# Don't invoke -early-cse, which may hide undefined behavior bugs.
+	opts = ['-strip-debug-declare', '-simplifycfg', '-scalarrepl', 
+	'-lower-expect', '-basicaa']
+# , '-disable-output', '-targetlibinfo',
+#	'-tbaa', '-basicaa', '-globalopt', '-ipsccp', '-deadargelim',
+#	'-simplifycfg', '-basiccg', '-prune-eh', '-inline', '-functionattrs',
+#	'-argpromotion', '-scalarrepl-ssa', '-early-cse', '-simplify-libcalls',
+#	'-lazy-value-info', '-jump-threading', '-correlated-propagation', '-simplifycfg',
+#	'-strip-dead-prototypes', '-globaldce', '-constmerge', '-adce',
+#	'-simplifycfg', '-std-compile-opts', '-O2']
+	p2 = subprocess.Popen(['opt', '-S', '-o', out] + opts, stdin=p1.stdout)
+	p1.stdout.close()
+	#p2.communicate()
+	return p1.returncode
+
+def main():
+	llvmcc = os.getenv('LLVMCC', 'clang -no-integrated-as').split(' ', 1)
+	argv = sys.argv[1:]
+	exts = ['.c', '.cc', '.cpp', '.cxx', '.C']
+	# Keep silence for preprocesssing and make depend.
+	if any(a in argv for a in ['-E', '-M', '-MM']):
+		return
+	# Extrace input source files.
+	srcs = [a for a in argv if os.path.splitext(a)[1] in exts]
+	# Keep silence if only '-' is given; otherwise we need to duplicate
+	# data from stdin for the next consumer (e.g., gcc).
+	if not srcs:
+		return
+	# Remove source files froma args.
+	argv = [x for x in argv if x not in srcs]
+	for s in srcs:
+		rc = cc(llvmcc, s, list(argv))
+	sys.exit(rc)
+
+if __name__ == '__main__':
+	main()

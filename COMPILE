@@ -1,0 +1,9 @@
+Klock was tested using LLVM 3.3 compiled from source. 
+
+Use following commands to build Klock
+
+	$ autoreconf -fvi
+	$ mkdir build
+	$ cd build
+	$ ../configure
+	$ make

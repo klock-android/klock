@@ -1,0 +1,2 @@
+#ARCH=arm CROSS_COMPILE=/export2/jindal0/llvmlinux/arch/arm/toolchain/android/arm-linux-androideabi-4.6/bin/arm-linux-androideabi- LLVMCC=/export2/jindal0/kint/build/bin/arm-eabi-gcc /export2/jindal0/kint/build/bin/kint-build make -j8
+ARCH=arm CROSS_COMPILE=/export2/jindal0/llvmlinux/arch/arm/toolchain/android/arm-linux-androideabi-4.6/bin/arm-linux-androideabi- LLVMCC=/export2/jindal0/llvmlinux/arch/arm/toolchain/codesourcery/bin/arm-eabi-gcc /export2/jindal0/kint/build/bin/kint-build make -j8

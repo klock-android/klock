@@ -1,0 +1,1919 @@
+Compiling try-same-var-2.c
+Done compiling test files. Press return to test
+  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+         F malloc
+  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+         F malloc
+addInitialCriterion called
+calculateStaticSlice ============ BEG
+calculateStaticSlice ======= compute RC
+
+computeRC: ============== Iteration 1
+  computeRCi: bitcast
+    DUMP:   %0 = bitcast i32* undef to i8*, !dbg !21
+
+computeRCij -----> 
+  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+i ----->
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED  computeRCi: phi (c.0)
+    DUMP:   %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+
+computeRCij -----> 
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+
+scomputeRCi2 END
+computeRCij -----> 
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END ----------CHANGED  computeRCi: bitcast
+    DUMP:   %1 = bitcast i32* undef to i8*, !dbg !24
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+i ----->
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+i ----->
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+i ----->
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+i ----->
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+		  %2 = load i32* undef, align 4, !dbg !26
+
+		  %3 = load i32* undef, align 4, !dbg !26
+
+scomputeRCi2 END
+computeRCij -----> 
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+i ----->
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: ret
+    DUMP:   ret i32 %c.0, !dbg !28
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED
+computeRC: ============== Iteration 2
+  computeRCi: bitcast
+    DUMP:   %0 = bitcast i32* undef to i8*, !dbg !21
+
+computeRCij -----> 
+  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+i ----->
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: phi (c.0)
+    DUMP:   %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+
+computeRCij -----> 
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+
+scomputeRCi2 END
+computeRCij -----> 
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END  computeRCi: bitcast
+    DUMP:   %1 = bitcast i32* undef to i8*, !dbg !24
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+i ----->
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+i ----->
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+i ----->
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+i ----->
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+		  %2 = load i32* undef, align 4, !dbg !26
+
+		  %3 = load i32* undef, align 4, !dbg !26
+
+scomputeRCi2 END
+computeRCij -----> 
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+i ----->
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+		Checking RC value 
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: ret
+    DUMP:   ret i32 %c.0, !dbg !28
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 ENDcalculateStaticSlice ======= compute SC
+	i ==>	  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+	j ==>	  %0 = bitcast i32* undef to i8*, !dbg !21
+	i ==>	  br label %while.cond, !dbg !23
+	j ==>	  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+	i ==>	  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+	j ==>	  br label %while.cond, !dbg !27
+	i ==>	  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+	j ==>	  br label %while.cond, !dbg !23
+		  %sub = sub nsw i32 %2, %3, !dbg !26		  %0 = bitcast i32* undef to i8*, !dbg !21
+	i ==>	  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+	j ==>	  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]		  %0 = bitcast i32* undef to i8*, !dbg !21
+	i ==>	  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+	j ==>	  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23		  %0 = bitcast i32* undef to i8*, !dbg !21
+	i ==>	  %1 = bitcast i32* undef to i8*, !dbg !24
+	j ==>	  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+	i ==>	  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+	j ==>	  %1 = bitcast i32* undef to i8*, !dbg !24
+	i ==>	  %2 = load i32* undef, align 4, !dbg !26
+	j ==>	  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+	i ==>	  %3 = load i32* undef, align 4, !dbg !26
+	j ==>	  %2 = load i32* undef, align 4, !dbg !26
+	i ==>	  %sub = sub nsw i32 %2, %3, !dbg !26
+	j ==>	  %3 = load i32* undef, align 4, !dbg !26
+	i ==>	  br label %while.cond, !dbg !27
+	j ==>	  %sub = sub nsw i32 %2, %3, !dbg !26
+	i ==>	  ret i32 %c.0, !dbg !28
+	j ==>	  br i1 %cmp, label %while.body, label %while.end, !dbg !23  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+calculateStaticSlice ============ END
+toCalls getTIssue
+Analyze toCalls main
+toExits getTIssue
+Analyze toExits klock_getT1
+Adding toExits klock_getT1
+Analyze toExits klock_getT1
+calculateStaticSlice ============ BEG
+calculateStaticSlice ======= compute RC
+
+computeRC: ============== Iteration 1
+  computeRCi: call (call)
+    DUMP:   %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+
+computeRCij -----> 
+  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    REF:
+    fRC:
+      OFF=-1i8* %tv
+i ----->
+  %conv = sext i32 %call to i64, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    REF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    fRC:
+		Checking RC value 
+		i8* %tv
+		Checking REFvalue 
+		  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+			i8* %tv
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %conv = sext i32 %call to i64, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    REF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+i ----->
+  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    REF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    fRC:
+		Checking RC value 
+		i8* %tv
+		Checking REFvalue 
+		  %conv = sext i32 %call to i64, !dbg !21
+			i8* %tv
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    REF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+i ----->
+  ret i32 undef, !dbg !22
+    SLICED
+    DEF:
+    REF:
+    fRC:
+		Checking RC value 
+		i8* %tv
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED
+computeRC: ============== Iteration 2
+  computeRCi: call (call)
+    DUMP:   %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+
+computeRCij -----> 
+  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    REF:
+    fRC:
+      OFF=-1i8* %tv
+i ----->
+  %conv = sext i32 %call to i64, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    REF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+		Checking RC value 
+		i8* %tv
+		Checking REFvalue 
+		  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+			i8* %tv
+
+scomputeRCi2 END
+computeRCij -----> 
+  %conv = sext i32 %call to i64, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    REF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+i ----->
+  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    REF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+		Checking RC value 
+		i8* %tv
+		Checking REFvalue 
+		  %conv = sext i32 %call to i64, !dbg !21
+			i8* %tv
+
+scomputeRCi2 END
+computeRCij -----> 
+  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    REF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+i ----->
+  ret i32 undef, !dbg !22
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1i8* %tv
+		Checking RC value 
+		i8* %tv
+		Checking REFvalue 
+scomputeRCi2 ENDcalculateStaticSlice ======= compute SC
+	i ==>	  %conv = sext i32 %call to i64, !dbg !21
+	j ==>	  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+		  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21		i8* %tv
+	i ==>	  %0 = inttoptr i64 %conv to i8*, !dbg !21
+	j ==>	  %conv = sext i32 %call to i64, !dbg !21
+		  %conv = sext i32 %call to i64, !dbg !21		i8* %tv
+	i ==>	  ret i32 undef, !dbg !22
+	j ==>	  %0 = inttoptr i64 %conv to i8*, !dbg !21  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    REF:
+    fRC:
+      OFF=-1i8* %tv
+  %conv = sext i32 %call to i64, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    REF:
+      OFF=-1  %call = call i32 (i32, ...)* bitcast (i32 (...)* @malloc to i32 (i32, ...)*)(i32 4) #2, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = inttoptr i64 %conv to i8*, !dbg !21
+    REF:
+      OFF=-1  %conv = sext i32 %call to i64, !dbg !21
+    fRC:
+      OFF=-1i8* %tv
+  ret i32 undef, !dbg !22
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1i8* %tv
+calculateStaticSlice ============ END
+toCalls klock_getT1
+Analyze toCalls getTIssue
+Comparing i8* %tvi8* %tv
+relevant param   %0 = bitcast i32* undef to i8*, !dbg !21
+Analyze toCalls getTIssue
+Comparing i8* %tvi8* %tv
+relevant param   %1 = bitcast i32* undef to i8*, !dbg !24
+Adding toCalls getTIssue
+toExits klock_getT1
+calculateStaticSlice ============ BEG
+calculateStaticSlice ======= compute RC
+
+computeRC: ============== Iteration 1
+  computeRCi: bitcast
+    DUMP:   %0 = bitcast i32* undef to i8*, !dbg !21
+
+computeRCij -----> 
+  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+i ----->
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: phi (c.0)
+    DUMP:   %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+
+computeRCij -----> 
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+
+scomputeRCi2 END
+computeRCij -----> 
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END  computeRCi: bitcast
+    DUMP:   %1 = bitcast i32* undef to i8*, !dbg !24
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+i ----->
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		Checking REFvalue 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %2 = load i32* undef, align 4, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+		  %3 = load i32* undef, align 4, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED  computeRCi: ret
+    DUMP:   ret i32 %c.0, !dbg !28
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END
+computeRC: ============== Iteration 2
+  computeRCi: bitcast
+    DUMP:   %0 = bitcast i32* undef to i8*, !dbg !21
+
+computeRCij -----> 
+  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+i ----->
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: phi (c.0)
+    DUMP:   %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+
+computeRCij -----> 
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END ----------CHANGED
+computeRCij -----> 
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END ----------CHANGED  computeRCi: bitcast
+    DUMP:   %1 = bitcast i32* undef to i8*, !dbg !24
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+i ----->
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		Checking REFvalue 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %2 = load i32* undef, align 4, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+		  %3 = load i32* undef, align 4, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: ret
+    DUMP:   ret i32 %c.0, !dbg !28
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END ----------CHANGED
+computeRC: ============== Iteration 3
+  computeRCi: bitcast
+    DUMP:   %0 = bitcast i32* undef to i8*, !dbg !21
+
+computeRCij -----> 
+  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+i ----->
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		Checking REFvalue 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: phi (c.0)
+    DUMP:   %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+
+computeRCij -----> 
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+i ----->
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		Checking REFvalue 
+		  %sub = sub nsw i32 %2, %3, !dbg !26
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+
+scomputeRCi2 END
+computeRCij -----> 
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+			  %0 = bitcast i32* undef to i8*, !dbg !21
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END  computeRCi: bitcast
+    DUMP:   %1 = bitcast i32* undef to i8*, !dbg !24
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+i ----->
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		Checking REFvalue 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END
+computeRCij -----> 
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+		  %2 = load i32* undef, align 4, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+		  %3 = load i32* undef, align 4, !dbg !26
+			  %1 = bitcast i32* undef to i8*, !dbg !24
+
+scomputeRCi2 END
+computeRCij -----> 
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 END  computeRCi: ret
+    DUMP:   ret i32 %c.0, !dbg !28
+
+computeRCij -----> 
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+i ----->
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking RC value 
+		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %1 = bitcast i32* undef to i8*, !dbg !24
+		Checking REFvalue 
+scomputeRCi2 ENDcalculateStaticSlice ======= compute SC
+	i ==>	  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+	j ==>	  %0 = bitcast i32* undef to i8*, !dbg !21
+	i ==>	  br label %while.cond, !dbg !23
+	j ==>	  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+	i ==>	  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+	j ==>	  br label %while.cond, !dbg !27
+		  %sub = sub nsw i32 %2, %3, !dbg !26		  %1 = bitcast i32* undef to i8*, !dbg !24
+	i ==>	  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+	j ==>	  br label %while.cond, !dbg !23
+		  %sub = sub nsw i32 %2, %3, !dbg !26		  %0 = bitcast i32* undef to i8*, !dbg !21
+	i ==>	  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+	j ==>	  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]		  %1 = bitcast i32* undef to i8*, !dbg !24
+	i ==>	  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+	j ==>	  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23		  %0 = bitcast i32* undef to i8*, !dbg !21
+		  %cmp = icmp sgt i32 %c.0, 20, !dbg !23		  %1 = bitcast i32* undef to i8*, !dbg !24
+	i ==>	  %1 = bitcast i32* undef to i8*, !dbg !24
+	j ==>	  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+	i ==>	  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+	j ==>	  %1 = bitcast i32* undef to i8*, !dbg !24
+	i ==>	  %2 = load i32* undef, align 4, !dbg !26
+	j ==>	  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+	i ==>	  %3 = load i32* undef, align 4, !dbg !26
+	j ==>	  %2 = load i32* undef, align 4, !dbg !26
+	i ==>	  %sub = sub nsw i32 %2, %3, !dbg !26
+	j ==>	  %3 = load i32* undef, align 4, !dbg !26
+		  %2 = load i32* undef, align 4, !dbg !26		  %1 = bitcast i32* undef to i8*, !dbg !24
+		  %3 = load i32* undef, align 4, !dbg !26		  %1 = bitcast i32* undef to i8*, !dbg !24
+	i ==>	  br label %while.cond, !dbg !27
+	j ==>	  %sub = sub nsw i32 %2, %3, !dbg !26
+	i ==>	  ret i32 %c.0, !dbg !28
+	j ==>	  br i1 %cmp, label %while.body, label %while.end, !dbg !23  %0 = bitcast i32* undef to i8*, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    REF:
+    fRC:
+  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    SLICED
+    DEF:
+      OFF=-1  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
+    REF:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  br label %while.cond, !dbg !23
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    SLICED
+    DEF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    REF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    SLICED
+    DEF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    REF:
+      OFF=-1  %c.0 = phi i32 [ 30, %entry ], [ %sub, %while.body ]
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  br i1 %cmp, label %while.body, label %while.end, !dbg !23
+    SLICED
+    DEF:
+    REF:
+      OFF=-1  %cmp = icmp sgt i32 %c.0, 20, !dbg !23
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  %1 = bitcast i32* undef to i8*, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    REF:
+    fRC:
+  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    SLICED
+    DEF:
+      OFF=-1  %call1 = call i32 @klock_getT1(i8* %1) #2, !dbg !24
+    REF:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  %2 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  %3 = load i32* undef, align 4, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  %sub = sub nsw i32 %2, %3, !dbg !26
+    SLICED
+    DEF:
+      OFF=-1  %sub = sub nsw i32 %2, %3, !dbg !26
+    REF:
+      OFF=-1  %2 = load i32* undef, align 4, !dbg !26
+      OFF=-1  %3 = load i32* undef, align 4, !dbg !26
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  br label %while.cond, !dbg !27
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+  ret i32 %c.0, !dbg !28
+    SLICED
+    DEF:
+    REF:
+    fRC:
+      OFF=-1  %0 = bitcast i32* undef to i8*, !dbg !21
+      OFF=-1  %1 = bitcast i32* undef to i8*, !dbg !24
+calculateStaticSlice ============ END
+toCalls getTIssue
+Analyze toCalls main
+toExits getTIssue
+Analyze toExits klock_getT1
+Analyze toExits klock_getT1
+Printing Time Pairs 
+Done Printing Time Pairs 
+Printing sliceCount 
+Count 2
+getTIssue  %call = call i32 @klock_getT1(i8* %0) #2, !dbg !21
